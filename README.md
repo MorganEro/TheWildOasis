@@ -22,8 +22,8 @@ This is a udemy course practice building a vite/react project
 
 ### Links
 
-- Solution URL: (https://github.com/MorganEro/WorldWise)
-- Live Site URL: (https://morganero.github.io/WorldWise/)
+- Solution URL: (https://github.com/MorganEro/TheWildOasis)
+- Live Site URL: (https://morganero.github.io/TheWildOasis)
 
 ### Built with
 
@@ -38,19 +38,19 @@ This is a udemy course practice building a vite/react project
 
 1. creating a react project with Vite
 2. adding eslint support to a vite/react project
-3. using ReactRouter in my project
-4. using nested Routes
-5. using css modules to scope css styling to components
-6. fetch with try/catch/finally block
-7. custom spinner component for isLoading state
-8. UseParams, using query strings, and UseSearchParams for navigation using state stored in the url.
-9. UseNavigate for programmatic navigation. use to navigate to the form when the map is clicked on. And also to navigate back
-10. Context Api. Creating a context folder with different contexts inside. Each context file will create its own context, have a context provider component, and custom useContext hook to return the values of its context.
-11. Creating a map using react-leaflet. Also learned how to use the custom hooks that come with the react-leaflet plugin(useMapEvents, useMap)
-12. used datePicker plugin
-13. improved useContext component by handling state in a reducer function
-14. handled CRUD functionality
-15. fake authorization and protected routes component
+3. using styledComponents to scope css styling to components. Styled component with props and default props
+4. using ReactRouter in my project
+5. using nested Routes
+6. Creating an AppLayout component and using the outlet component
+7. using React Icons
+8. using SuperBase for data management
+9. React Query for API calls and CRUD functionality, duplication
+10. using onBlur to update single values in a react form (i am not a fan. will need to work on it more)
+11. using the date-fns date utility library
+12. using Toast(react-hot-toasts) library and react query for notifications and alerts
+13. custom spinner component for isLoading state
+14. react-hook-form library for forms and validation to create and edit cabins
+15. authorization and protected routes component
 16. lazy loading and using suspend api for routes
 
 ### Continued development

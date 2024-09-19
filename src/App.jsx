@@ -1,38 +1,104 @@
-import styled from 'styled-components';
-import GlobalStyles from './styles/globalStyles';
-import Heading from './ui/Heading';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-const Button = styled.button`
-  font-size: 1.4rem;
-  padding: 1.2rem 1.6rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 7px;
-  background-color: purple;
-  color: white;
+import GlobalStyles from './styles/GlobalStyles';
+import AppLayout from './ui/AppLayout';
 
-  &:hover {
-    background-color: blue;
-  }
-`;
+import Dashboard from './pages/Dashboard';
+import Account from './pages/Account';
+import Bookings from './pages/Bookings';
+import Cabins from './pages/Cabins';
+import Login from './pages/Login';
+import PageNotFound from './pages/PageNotFound';
+import Settings from './pages/Settings';
+import Users from './pages/Users';
+import { Toaster } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 
-const StyledApp = styled.div`
-  //use this instead of div. the convention is to use the name of the component prefixed with 'Styled'. It will show up in the dom tree as a div
-  background-color: orange;
-  padding: 20px;
-`;
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
-      <StyledApp>
-        <Heading as="h1">Heading 1</Heading>
-        <Heading as="h2">Heading 2</Heading>
-        <Heading as="h3">Heading 3</Heading>
-        <Button onClick={() => alert('Checked in')}>Check In</Button>
-      </StyledApp>
-    </>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route
+              index
+              element={
+                <Navigate
+                  replace
+                  to="dashboard"
+                />
+              }
+            />
+            <Route
+              path="dashboard"
+              element={<Dashboard />}
+            />
+            <Route
+              path="bookings"
+              element={<Bookings />}
+            />
+            <Route
+              path="cabins"
+              element={<Cabins />}
+            />
+            <Route
+              path="users"
+              element={<Users />}
+            />
+            <Route
+              path="settings"
+              element={<Settings />}
+            />
+            <Route
+              path="account"
+              element={<Account />}
+            />
+          </Route>
+
+          <Route
+            path="login"
+            element={<Login />}
+          />
+          <Route
+            path="*"
+            element={<PageNotFound />}
+          />
+        </Routes>
+      </BrowserRouter>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: '8px' }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: '1rem',
+            maxWidth: '500px',
+            padding: '1rem 1.5rem',
+            backgroundColor: 'var(--color-grey-0)',
+            color: 'var(--color-grey-700)',
+          },
+        }}
+      />
+    </QueryClientProvider>
   );
 }
 
