@@ -61,7 +61,12 @@ export async function createUpdateCabin(newCabin, id) {
 }
 
 export async function deleteCabin(id) {
-  const { data, error } = await supabase.from('cabins').delete().eq('id', id);
+  const { data, error } = await supabase
+    .from('cabins')
+    .delete()
+    .eq('id', id)
+    .select()
+    .single();
 
   if (error) {
     console.error(error);

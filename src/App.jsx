@@ -14,7 +14,9 @@ import PageNotFound from './pages/PageNotFound';
 import Settings from './pages/Settings';
 import Users from './pages/Users';
 import { Toaster } from 'react-hot-toast';
-import { ToastContainer } from 'react-toastify';
+import Booking from './pages/Booking';
+import CheckIn from './pages/CheckIn';
+import ProtectedRoute from './ui/ProtectedRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,7 +34,12 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }>
             <Route
               index
               element={
@@ -49,6 +56,14 @@ function App() {
             <Route
               path="bookings"
               element={<Bookings />}
+            />
+            <Route
+              path="bookings/:bookingId"
+              element={<Booking />}
+            />
+            <Route
+              path="checkIn/:bookingId"
+              element={<CheckIn />}
             />
             <Route
               path="cabins"

@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import { createContext, useContext } from 'react';
+import styled from 'styled-components';
 
-const StyledTable = styled.div`
+//add the role of table to the styledTable component
+const StyledTable = styled.div.attrs({ role: 'table' })`
   border: 1px solid var(--color-grey-200);
 
   font-size: 1.4rem;
@@ -9,15 +11,23 @@ const StyledTable = styled.div`
   overflow: hidden;
 `;
 
-const CommonRow = styled.div`
+const CommonRow = styled.div.attrs({ role: 'row' }).withConfig({
+  shouldForwardProp: prop => !['columns'].includes(prop),
+})`
   display: grid;
-  grid-template-columns: ${(props) => props.columns};
+  grid-template-columns: ${props => props.columns};
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+  
+   // Ensure extra content is hidden and truncated with ellipsis
+   & > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
-
-const StyledHeader = styled(CommonRow)`
+const StyledHeader = styled(CommonRow).attrs({ as: 'header' })`
   padding: 1.6rem 2.4rem;
 
   background-color: var(--color-grey-50);
@@ -58,3 +68,38 @@ const Empty = styled.p`
   text-align: center;
   margin: 2.4rem;
 `;
+
+const TableContext = createContext();
+
+function Table({ columns, children }) {
+  return (
+    <TableContext.Provider value={{ columns }}>
+      <StyledTable>{children}</StyledTable>
+    </TableContext.Provider>
+  );
+}
+
+function Header({ children }) {
+  const { columns } = useContext(TableContext);
+
+  return <StyledHeader columns={columns}>{children}</StyledHeader>;
+}
+
+function Row({ children }) {
+  const { columns } = useContext(TableContext);
+
+  return <StyledRow columns={columns}>{children}</StyledRow>;
+}
+
+function Body({ data, render }) {
+  if (!data.length) return <Empty>No data to show at the moment.</Empty>;
+
+  return <StyledBody>{data.map(render)}</StyledBody>;
+}
+
+Table.Header = Header;
+Table.Row = Row;
+Table.Body = Body;
+Table.Footer = Footer;
+
+export default Table;

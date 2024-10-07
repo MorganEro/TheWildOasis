@@ -9,7 +9,7 @@ import { useCreateCabin } from './useCreateCabin';
 import { useForm } from 'react-hook-form';
 import { useUpdateCabin } from './useUpdateCabin';
 
-function CreateCabinForm({ cabinToUpdate = {} }) {
+function CreateCabinForm({ cabinToUpdate = {}, onCloseModal }) {
   const { id: updateId, ...updateValues } = cabinToUpdate;
   const isUpdateSession = Boolean(updateId);
 
@@ -37,8 +37,9 @@ function CreateCabinForm({ cabinToUpdate = {} }) {
           id: updateId,
         },
         {
-          onSuccess: data => {
+          onSuccess: () => {
             reset();
+            onCloseModal?.();
           },
         }
       );
@@ -49,8 +50,9 @@ function CreateCabinForm({ cabinToUpdate = {} }) {
           image: image,
         },
         {
-          onSuccess: data => {
+          onSuccess: () => {
             reset();
+            onCloseModal?.();
           },
         }
       );
@@ -60,9 +62,11 @@ function CreateCabinForm({ cabinToUpdate = {} }) {
     // console.error(errors);
   }
 
-  //if the onSubmit callback fails, the onError function will be called
+  //if the onSubmit callback fails, the onError function will be called but I am not using it because we are using errors from useForm
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      type={onCloseModal ? 'modal' : 'regular'}>
       <FormRow
         label="Cabin name"
         error={errors?.name?.message}>
@@ -151,7 +155,8 @@ function CreateCabinForm({ cabinToUpdate = {} }) {
         {/* type is an HTML attribute! */}
         <Button
           variation="secondary"
-          type="reset">
+          type="reset"
+          onClick={() => onCloseModal?.()}>
           Cancel
         </Button>
         <Button disabled={isWorking}>

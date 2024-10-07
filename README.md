@@ -45,13 +45,17 @@ This is a udemy course practice building a vite/react project
 7. using React Icons
 8. using SuperBase for data management
 9. React Query for API calls and CRUD functionality, duplication
-10. using onBlur to update single values in a react form (i am not a fan. will need to work on it more)
-11. using the date-fns date utility library
-12. using Toast(react-hot-toasts) library and react query for notifications and alerts
-13. custom spinner component for isLoading state
-14. react-hook-form library for forms and validation to create and edit cabins
-15. authorization and protected routes component
-16. lazy loading and using suspend api for routes
+10. Implemented pagination for data retrieved and displayed on the Bookings page. Then used prefetching to improve the user experience
+11. using onBlur to update single values in a react form (i am not a fan. will need to work on it more)
+12. create a reusable modal component and use the createPortal method to place the modal as a child of the body element instead of its regular dom tree positioning
+13. used the cloneElement method to add the opens prop to the opened modal component allowing it to tell which modal window it should open
+14. using the date-fns date utility library
+15. using Toast(react-hot-toasts) library and react query for notifications and alerts
+16. Filtering and sorting (both client-side with cabins and server-side with bookings)
+17. custom spinner component for isLoading state
+18. react-hook-form library for forms and validation to create and edit cabins
+19. authorization, authorization, and protected routes component
+20. lazy loading and using suspend api for routes
 
 ### Continued development
 
