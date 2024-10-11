@@ -18,7 +18,9 @@ This is a udemy course practice building a vite/react project
 
 ### Screenshot
 
-![](/public/Screen%20Shot%202024-08-29%20at%2013.43.57.png)
+![](/public/dashboard.png),
+![](/public/bookings.png.png),
+![](/public/cabins-newCabinModal.png.png),
 
 ### Links
 
@@ -30,9 +32,13 @@ This is a udemy course practice building a vite/react project
 - CSS custom properties
 - Flexbox
 - CSS Grid layout
-- React
-- ReactRouter
-- React Leaflet
+- Style-Components
+- React-Hook-Form
+- React-Router
+- React-hot-toast
+- Recharts
+- React-Error-Boundary
+- Date-fns
 
 ### What I learned
 
@@ -56,6 +62,9 @@ This is a udemy course practice building a vite/react project
 18. react-hook-form library for forms and validation to create and edit cabins
 19. authorization, authorization, and protected routes component
 20. lazy loading and using suspend api for routes
+21. Adding a dark mode
+22. Graphs and Charts using ReCharts library
+23. handling react render errors with react-error-boundary
 
 ### Continued development
 

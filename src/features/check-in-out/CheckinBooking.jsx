@@ -14,7 +14,6 @@ import { useEffect, useState } from 'react';
 import Checkbox from '../../ui/Checkbox';
 import { formatCurrency } from '../../utils/helpers';
 import { useCheckIn } from './useCheckIn';
-import { useCheckOut } from './useCheckOut';
 import { useSettings } from '../settings/useSettings';
 
 const Box = styled.div`
@@ -31,7 +30,6 @@ function CheckInBooking() {
   const moveBack = useMoveBack();
   const [addBreakfast, setAddBreakfast] = useState(false);
   const { checkIn, isCheckingIn } = useCheckIn();
-  const { checkOut, isCheckingOut } = useCheckOut();
   const { settings, isLoading: isLoadingSettings } = useSettings();
 
   const {

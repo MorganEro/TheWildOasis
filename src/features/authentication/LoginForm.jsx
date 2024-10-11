@@ -5,10 +5,11 @@ import Input from '../../ui/Input';
 import FormRowVertical from '../../ui/FormRowVertical';
 import { useLogin } from './useLogin';
 import SpinnerMini from '../../ui/SpinnerMini';
+import PasswordInput from '../../ui/PasswordInput';
 
 function LoginForm() {
-  const [email, setEmail] = useState('morgan@example.com');
-  const [password, setPassword] = useState('4Wildoasis!');
+  const [email, setEmail] = useState('test@test.com');
+  const [password, setPassword] = useState('8765432!');
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
@@ -39,7 +40,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical label="Password">
-        <Input
+        <PasswordInput
           type="password"
           id="password"
           autoComplete="current-password"

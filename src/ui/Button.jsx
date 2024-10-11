@@ -46,6 +46,14 @@ const variations = {
       background-color: var(--color-red-800);
     }
   `,
+  tertiary: css`
+    color: var(--color-green-100);
+    background-color: var(--color-green-700);
+
+    &:hover {
+      background-color: var(--color-green-800);
+    }
+  `,
 };
 
 const Button = styled.button.withConfig({

@@ -9,9 +9,7 @@ function Logout() {
   return (
     <ButtonIcon
       onClick={logout}
-      title="Logout"
       disabled={isLoading}>
-      <span>Logout</span>
       {!isLoading ? <HiArrowRightOnRectangle /> : <SpinnerMini />}
     </ButtonIcon>
   );
