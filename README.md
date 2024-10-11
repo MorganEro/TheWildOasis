@@ -7,7 +7,7 @@ This is a udemy course practice building a vite/react project
 - [Ultimate React Course--The Wild Oasis](#ultimate-react-course--the-wild-oasis)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
-    - [Screenshot](#screenshot)
+    - [Screenshots](#screenshots)
     - [Links](#links)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
@@ -16,11 +16,11 @@ This is a udemy course practice building a vite/react project
 
 ## Overview
 
-### Screenshot
+### Screenshots
 
-![](/public/dashboard.png)
-![](/public/bookings.png.png)
-![](/public/cabins-newCabinModal.png.png)
+![Dashboard](/public/dashboard.png)
+![Bookings Page](/public/bookings.png.png)
+![Cabins Page](/public/cabins-newCabinModal.png.png)
 
 ### Links
 
