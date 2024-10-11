@@ -19,8 +19,8 @@ This is a udemy course practice building a vite/react project
 ### Screenshots
 
 ![Dashboard](/public/dashboard.png)
-![Bookings Page](/public/bookings.png.png)
-![Cabins Page](/public/cabins-newCabinModal.png.png)
+![Bookings Page](/public/bookings.png)
+![Cabins Page](/public/cabins-newCabinModal.png)
 
 ### Links
 
